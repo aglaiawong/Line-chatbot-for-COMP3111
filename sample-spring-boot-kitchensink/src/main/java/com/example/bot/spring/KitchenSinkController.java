@@ -312,9 +312,6 @@ public class KitchenSinkController {
 	}
 
 
-	
-
-
 	public KitchenSinkController() {
 		//database = new DatabaseEngine();	
 		database = new SQLDatabaseEngine(); 

@@ -69,12 +69,13 @@ public class KitchenSinkTester {
 		boolean thrown = false;
 		String result = null;
 		try {
-			result = this.databaseEngine.search("abc");
+			result = this.databaseEngine.search("Where do you study?");
+			//if (result == null) thrown = true; 
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(!thrown);
-		assertThat(result.equals("def"));
+		assertThat(!thrown);		
+		assertThat(result.equals("hkust"));
 	}
 	
 	@Test
@@ -82,15 +83,13 @@ public class KitchenSinkTester {
 		boolean thrown = false; 
 		String result = null; 
 		try{
-			result = this.databaseEngine.search("Hi");
+			result = this.databaseEngine.search("Is the traffic convenient?");
+			//if (result == null) thrown = true; 
 		} catch(Exception e){
 			thrown = true; 
 		}
 		assertThat(!thrown);
-		assertThat(result.equals("Hey, how things going?"));
+		assertThat(result.equals("not really"));
 	}
-	
-	
-	
-	
+
 }

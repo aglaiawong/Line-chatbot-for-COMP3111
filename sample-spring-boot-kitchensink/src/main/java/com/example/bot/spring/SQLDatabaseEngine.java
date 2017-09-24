@@ -14,12 +14,13 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		//Write your code here
 		try{
 			Connection connection = getConnection(); 			
-			PreparedStatement stmt = connection.prepareStatement("select keyword, response from t1 where keyword like cat('%', ?, '%')");
+			PreparedStatement stmt = connection.prepareStatement("select keyword, response from t1");
 			//return all results containing a particular phrase 
-			stmt.setString(1, text); 		//set that particular phase 
 			ResultSet rs = stmt.executeQuery(); 
 			while(rs.next()){
-				return (rs.getString(2)); 
+				if(rs.getString(1).toLowerCase().equals(text.toLowerCase())){
+					return rs.getString(2); 
+				}
 			}
 			rs.close(); 
 			stmt.close(); 
