@@ -28,7 +28,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		} catch(Exception e){
 			System.out.println(e); 
 		}
-		return null;
+		throw new Exception("NOT FOUND");
+		//return null;
 	}
 	
 	
