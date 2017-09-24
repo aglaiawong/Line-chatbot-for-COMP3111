@@ -12,6 +12,21 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
+		try{
+			Connection connection = getConnection(); 			
+			PreparedStatement stmt = connection.prepareStatement("select keyword, response from t1 where keyword like cat('%', ?, '%')");
+			//return all results containing a particular phrase 
+			stmt.setString(1, text); 		//set that particular phase 
+			ResultSet rs = stmt.executeQuery(); 
+			while(rs.next()){
+				return (rs.getString(2)); 
+			}
+			rs.close(); 
+			stmt.close(); 
+			connection.close(); 
+		} catch(Exception e){
+			System.out.println(e); 
+		}
 		return null;
 	}
 	
