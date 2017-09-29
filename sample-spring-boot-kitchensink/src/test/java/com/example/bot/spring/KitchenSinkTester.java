@@ -74,8 +74,10 @@ public class KitchenSinkTester {
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(!thrown);		
-		assertThat(result.equals("hkust"));
+
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("hkust");
+		
 	}
 	
 	@Test
@@ -88,8 +90,10 @@ public class KitchenSinkTester {
 		} catch(Exception e){
 			thrown = true; 
 		}
-		assertThat(!thrown);
-		assertThat(result.equals("not really"));
+
+		
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("not really");
 	}
 
 }
